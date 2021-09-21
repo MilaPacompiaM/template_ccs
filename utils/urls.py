@@ -1,11 +1,12 @@
 from django.urls import path
 
-from .views import PDFView
+from .views import ImportView, ExportView
 
 
 app_name = 'utils'
 
 
 urlpatterns = [
-    path('pdf/', PDFView.as_view()),
+    path('excel/import/', ImportView.as_view()),
+    path('excel/export/', ExportView.as_view()),
 ]
