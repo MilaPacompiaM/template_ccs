@@ -154,7 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WKHTMLTOPDF_CMD = ENV('WKHTMLTOPDF_CMD', default='/usr/local/bin/wkhtmltopdf')
+WKHTMLTOPDF_CMD = ENV('WKHTMLTOPDF_CMD', default='wkhtmltopdf')
 
 WKHTMLTOPDF_CMD_OPTIONS = {
     'page-width': '210mm',
