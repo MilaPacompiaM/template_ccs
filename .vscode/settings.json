@@ -1,0 +1,11 @@
+{
+    "editor.rulers": [
+    ],
+    "[python]": {
+        "editor.rulers": [
+            79,
+        ]
+    },
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true
+}
