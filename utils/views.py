@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import permission_classes
 
-from .files import ExcelManager, CsvManager
+from .files import ExcelManager, CsvManager, PDFManager
 from .constants import Template
 
 
@@ -40,6 +40,10 @@ class ExportView(APIView):
             writer = csv.writer(response)
             datafile = CsvManager.write(datamap, Template.DEMO_WRITER)
             [writer.writerow([column for column in item]) for item in datafile]
+            return response
+        elif extension == 'pdf':
+            pdf = PDFManager.write(datamap, request=request)
+            response.content = pdf
             return response
         else:
             wb = ExcelManager.write(datamap, Template.DEMO_WRITER)

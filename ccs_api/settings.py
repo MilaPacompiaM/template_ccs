@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 import environ
 from pathlib import Path
 
@@ -44,6 +45,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'wkhtmltopdf',
 ]
 
 PROJECT_APPS = [
@@ -145,7 +147,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+WKHTMLTOPDF_CMD = ENV('WKHTMLTOPDF_CMD', default='/usr/local/bin/wkhtmltopdf')
+
+WKHTMLTOPDF_CMD_OPTIONS = {
+    'page-width': '210mm',
+    'page-height': '297mm',
+    'zoom': 1,
+    'quiet': True,
+    'dpi': 96,
+    'print-media-type': True,
+    'disable-smart-shrinking': True,
+    'javascript-delay': 2000,
+}

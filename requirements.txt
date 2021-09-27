@@ -4,6 +4,7 @@ botocore==1.21.43
 Django==3.2.7
 django-environ==0.7.0
 django-filter==2.4.0
+django-wkhtmltopdf==3.3.0
 djangorestframework==3.12.4
 et-xmlfile==1.1.0
 jmespath==0.10.0
@@ -11,6 +12,7 @@ Markdown==3.3.4
 openpyxl==3.0.8
 psycopg2==2.9.1
 psycopg2-binary==2.9.1
+pycodestyle==2.7.0
 python-dateutil==2.8.2
 pytz==2021.1
 s3transfer==0.5.0

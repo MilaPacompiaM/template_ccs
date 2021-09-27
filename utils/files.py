@@ -1,6 +1,9 @@
 import csv
 
+from django.template.loader import get_template
+
 from openpyxl import load_workbook, Workbook
+from wkhtmltopdf.utils import render_pdf_from_template
 
 
 class ExcelManager:
@@ -82,7 +85,7 @@ class CsvManager:
         :param values: dict with dynamic or variable data
         :param datamap: dict with structure of data
 
-        :return: Workbook
+        :return: list of list (rows with column values)
         """
 
         data = [
@@ -97,3 +100,26 @@ class CsvManager:
                 continue
             data[row - 1][col - 1] = value
         return data
+
+
+class PDFManager:
+    @staticmethod
+    def write(values, template_name='demo.html', request=None):
+        """
+        Writes static and dynamic data structured in `datamap`
+
+        :param values: dict with dynamic or variable data
+        :param datamap: dict with structure of data
+
+        :return: pdf object
+        """
+
+        # html = render_to_string(template, context=values)
+        template = get_template(template_name)
+        return render_pdf_from_template(
+            input_template=template,
+            header_template=None,
+            footer_template=None,
+            context=values,
+            request=request
+        )
