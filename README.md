@@ -4,7 +4,7 @@ CCS project
 ## Prerequisites
 
 You should have `python`, `python-virtualenv`, `python-pip`, `postgresql` and `git`
-
+Install [wkhtmltopdf](https://wkhtmltopdf.org/)
 
 ## Installation
 
