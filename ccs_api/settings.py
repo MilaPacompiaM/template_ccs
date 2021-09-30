@@ -93,16 +93,9 @@ WSGI_APPLICATION = 'ccs_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
-
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'techgenies',
-        'USER': 'techgenies',
-        'PASSWORD': 'techgenies',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': ENV.db()
 }
+
 
 
 REST_FRAMEWORK = {

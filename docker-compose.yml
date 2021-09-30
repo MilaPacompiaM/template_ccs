@@ -1,0 +1,20 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=ccs_db
+      - POSTGRES_USER=techgenies
+      - POSTGRES_PASSWORD=techgenies
+  web:
+    build: .
+    command: python manage.py runserver localhost:8008
+    volumes:
+      - .:/code
+    ports:
+      - "8008:8008"
+    depends_on:
+      - db
